@@ -9,7 +9,6 @@ public class Game{
     run();
   }
 
-
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
@@ -52,7 +51,7 @@ public class Game{
   //return a random adventurer (choose between all available subclasses)
   //feel free to overload this method to allow specific names/stats.
   public static Adventurer createRandomAdventurer(){
-    return null;
+    return new CodeWarrior("Bob"+(int)(Math.random()*100));;
   }
 
   /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -65,6 +64,7 @@ public class Game{
   * ***THIS ROW INTENTIONALLY LEFT BLANK***
   */
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
+
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -88,15 +88,29 @@ public class Game{
     drawBackground();
     //draw player party
     //draw enemy party
-    //go to the location your user will type things.
   }
 
+  public static String userInput(Scanner in){
+      //Move cursor to prompt location
+      //show cursor
+
+      //Read user input
+      String input = in.nextLine();
+      //After you must clear the text that was written
+
+      return input;
+  }
+
+  public static void quit(){
+    Text.reset();
+    Text.showCursor();
+    Text.go(32,1);
+  }
 
   public static void run(){
     //Clear and initialize
     Text.hideCursor();
     Text.clear();
-    Text.go(1,1);
 
 
     //Things to attack:
@@ -115,21 +129,28 @@ public class Game{
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-    boolean partyTurn = false;
+    boolean partyTurn = true;
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
-    Text.hideCursor();
+
+    //You can add parameters to draw screen!
     drawScreen();//initial state.
 
     //Main loop
+
+    //display this prompt at the start of the game.
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
-      input = in.nextLine();
+      input = userInput(in);
 
+      //example debug statment
+      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
@@ -168,30 +189,31 @@ public class Game{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
+
           partyTurn = false;
+          whichOpponent = 0;
         }
         //done with one party member
       }else{
         //not the party turn!
 
 
-        //display enemy attack except on turn 0.
-        if(turn > 0){
-          //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-          //Enemy action choices go here!
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+        //enemy attacks a randomly chosen person with a randomly chosen attack.z`
+        //Enemy action choices go here!
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        //YOUR CODE HERE
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
 
+        whichOpponent++;
 
       }//end of one enemy.
 
       //modify this if statement.
-      if(false){
+      if(!partyTurn && whichOpponent >= enemies.size()){
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
         whichPlayer = 0;
@@ -209,8 +231,6 @@ public class Game{
 
 
     //After quit reset things:
-    Text.reset();
-    Text.showCursor();
-    Text.go(32,1);
+    quit();
   }
 }
