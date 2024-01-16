@@ -4,11 +4,10 @@
 
 Make a clear list of features that work/dont work
 
-:white_check_mark: This feature works.
-
+:white_check_mark: This required feature works.
+:ballot_box_with_check: This extra feature works.
 :question: This feature works partially.
-
-:negative_squared_cross_mark: This feature does not work.
+:x: This feature does not work.
 
 
 ## Adventurer Subclasses
