@@ -8,7 +8,7 @@ Make a clear list of features that work/dont work
 
 :ballot_box_with_check: This extra feature works.
 
-:question: This feature works partially.
+:question: This required feature works partially.
 
 :x: This feature does not work.
 
