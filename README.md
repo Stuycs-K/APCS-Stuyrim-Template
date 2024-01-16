@@ -10,7 +10,7 @@ Make a clear list of features that work/dont work
 
 :question: This required feature works partially.
 
-:x: This feature does not work.
+:x: This required feature does not work.
 
 
 ## Adventurer Subclasses
