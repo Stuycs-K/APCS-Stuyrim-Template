@@ -33,6 +33,12 @@ public abstract class Adventurer{
   //hurt or hinder the target adventurer
   public abstract String attack(Adventurer other);
 
+  /*This is an example of an improvement that you can make to allow
+   * for more flexible targetting.
+   */
+  //heal or buff the party
+  //public abstract String support(ArrayList<Adventurer> others);
+
   //heal or buff the target adventurer
   public abstract String support(Adventurer other);
 
