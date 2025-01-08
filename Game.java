@@ -9,6 +9,14 @@ public class Game{
     run();
   }
 
+  //Display the borders of your screen that will not change.
+  //Do not write over the blank areas where text will appear or parties will appear.
+  public static void drawBackground(){
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    //YOUR CODE HERE
+    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  }
+
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
@@ -37,6 +45,29 @@ public class Game{
 
 
 
+    //return a random adventurer (choose between all available subclasses)
+    //feel free to overload this method to allow specific names/stats.
+    public static Adventurer createRandomAdventurer(){
+      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+    }
+
+    /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
+    *Should include Name HP and Special on 3 separate lines.
+    *Note there is one blank row reserved for your use if you choose.
+    *Format:
+    *Bob          Amy        Jun
+    *HP: 10       HP: 15     HP:19
+    *Caffeine: 20 Mana: 10   Snark: 1
+    * ***THIS ROW INTENTIONALLY LEFT BLANK***
+    */
+    public static void drawParty(ArrayList<Adventurer> party,int startRow){
+
+      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+      //YOUR CODE HERE
+      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    }
+
+
   //Use this to create a colorized number string based on the % compared to the max value.
   public static String colorByPercent(int hp, int maxHP){
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
@@ -48,55 +79,30 @@ public class Game{
   }
 
 
-  //return a random adventurer (choose between all available subclasses)
-  //feel free to overload this method to allow specific names/stats.
-  public static Adventurer createRandomAdventurer(){
-    return new CodeWarrior("Bob"+(int)(Math.random()*100));;
-  }
 
-  /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
-  *Should include Name HP and Special on 3 separate lines.
-  *Note there is one blank row reserved for your use if you choose.
-  *Format:
-  *Bob          Amy        Jun
-  *HP: 10       HP: 15     HP:19
-  *Caffeine: 20 Mana: 10   Snark: 1
-  * ***THIS ROW INTENTIONALLY LEFT BLANK***
-  */
-  public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  }
-
-  //Display the borders of your screen that will not change.
-  public static void drawBackground(){
-    //Do not write over the blank areas where text will appear or parties will appear.
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  }
 
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
     drawBackground();
+
     //draw player party
+
     //draw enemy party
+
   }
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
+
       //show cursor
 
-      //Read user input
       String input = in.nextLine();
-      //After you must clear the text that was written
+
+      //clear the text that was written
 
       return input;
   }
