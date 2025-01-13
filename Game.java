@@ -6,6 +6,8 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
+    
+    drawBackground();
     run();
   }
 
@@ -48,7 +50,10 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
+      
+      //you replace this body with your own code
       return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -85,9 +90,8 @@ public class Game{
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
-  public static void drawScreen(){
+  public static void drawScreen(ArrayList<Adventurer> enemies, ArrayList<Adventurer> party){
 
-    drawBackground();
 
     //draw player party
 
@@ -144,7 +148,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen();//initial state.
+    drawScreen(enemies,party);//initial state.
 
     //Main loop
 
@@ -162,12 +166,12 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(input.startsWith("attack ") || input.startsWith("a ")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(input.startsWith("special ") || input.startsWith("sp ")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
