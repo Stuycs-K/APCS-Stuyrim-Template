@@ -56,7 +56,7 @@ public class Game{
       
     }
 
-    /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
+    /*Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
     *Should include Name HP and Special on 3 separate lines.
     *Note there is one blank row reserved for your use if you choose.
     *Format:
